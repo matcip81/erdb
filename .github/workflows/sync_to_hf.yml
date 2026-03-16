@@ -24,4 +24,4 @@ jobs:
           # Rinominiamo il ramo da master a main per farlo coincidere
           git branch -m main
           # Forziamo l'invio
-          git push -f https://matcip :$HF_TOKEN@huggingface.co/spaces/matcip main
+          git push -f https://huggingface.co/matcip/spaces :$HF_TOKEN@huggingface.co/spaces/matcip main
