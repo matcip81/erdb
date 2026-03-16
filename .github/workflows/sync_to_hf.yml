@@ -17,8 +17,8 @@ jobs:
         run: |
           rm -rf .git
           git init
-          git config --global user.email "matcip@example.com"
-          git config --global user.name "matcip"
+          git config --global user.email "matteo981@gmail.com"
+          git config --global user.name "Matteo"
           git add .
           git commit -m "Initial clean sync"
           # Rinominiamo il ramo da master a main per farlo coincidere
