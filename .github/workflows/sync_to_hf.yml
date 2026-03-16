@@ -1,1 +1,27 @@
+name: Sincronizza su Hugging Face
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
 
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          rm -rf .git
+          git init
+          git config --global user.email "matcip@example.com"
+          git config --global user.name "matcip"
+          git add .
+          git commit -m "Initial clean sync"
+          # Rinominiamo il ramo da master a main per farlo coincidere
+          git branch -m main
+          # Forziamo l'invio
+          git push -f https://matcip :$HF_TOKEN@huggingface.co/spaces/matcip main
